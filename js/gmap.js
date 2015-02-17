@@ -6,22 +6,6 @@ var i=0;
 var markersArray = [];
 var d1;
 
-function initialize()
-{
-    geocoder = new google.maps.Geocoder();
-
-    var mapDiv = document.getElementById('map_canvas');
-
-    map = new google.maps.Map(mapDiv,
-        {
-            center: new google.maps.LatLng(-34.5248239,-58.4730149),
-            zoom: 15,
-            mapTypeId: google.maps.MapTypeId.ROADMAP
-        });
-    google.maps.event.addListener(map, 'click', addNewPoint)
-    geocoder = new google.maps.Geocoder();
-}
-
 function addNewPoint(e)
 {
     var data="";
@@ -37,8 +21,7 @@ function addNewPoint(e)
 
     marker = new google.maps.Marker({
         map: map,
-        position: e.latLng,
-        icon: "http://publiko.com.co/public/frontend/frontend/image/map_pin_choose.png"
+        position: e.latLng
     });
     
     latitude_shop=e.latLng.lat();

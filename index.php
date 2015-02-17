@@ -4,7 +4,20 @@
     <body>
         <script type="text/javascript" src="https://maps.googleapis.com/maps/api/js?key=AIzaSyDrP_EzhR9zgmjVe7sHBDDYDDtce8deQO8&sensor=false"></script>
         <script type="text/javascript" src="js/gmap.js"></script>
-        <script type="text/javascript">            
+        <script type="text/javascript">    
+            function initialize(){
+                geocoder = new google.maps.Geocoder();
+                var mapDiv = document.getElementById('map_canvas');
+                map = new google.maps.Map(mapDiv,
+                    {
+                        center: new google.maps.LatLng(-34.5248239,-58.4730149),
+                        zoom: 15,
+                        mapTypeId: google.maps.MapTypeId.ROADMAP
+                    });
+                google.maps.event.addListener(map, 'click', addNewPoint)
+                geocoder = new google.maps.Geocoder();
+            }
+            
             /* Aqui se inicializa el mapa */
             google.maps.event.addDomListener(window, 'load', initialize);
         </script>
